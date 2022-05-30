@@ -1,23 +1,15 @@
 {
   "patients": [
     {
-      "name": "John",
-      "age": 67,
-      "sex": "Male",
-      "currentMedications": [
-        {
-          "name": "Advil",
-          "dosage": "20 mg",
-          "numPills": "2",
-          "totalAmountRemaining": "18"
-        },
-        {
-          "name": "Ambien",
-          "dosage": "5 mg",
-          "numPills": "1",
-          "totalAmountRemaining": "12"
-        }
-      ]
+      "name": "Jessica",
+      "age": "21",
+      "sex": "Female",
+      "conditions": [
+        "pain",
+        "ankle",
+        "sore foot"
+      ],
+      "id": 0
     }
   ]
 }

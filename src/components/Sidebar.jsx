@@ -12,11 +12,15 @@ import { Link } from "react-router-dom";
 import React from "react";
 import HomeIcon from "@mui/icons-material/Home";
 import MedicationIcon from "@mui/icons-material/Medication";
+import AddBoxIcon from "@mui/icons-material/AddBox";
+import MedicalInformationIcon from "@mui/icons-material/MedicalInformation";
 
 const Sidebar = ({ children }) => {
   const menuItems = [
     { text: "Home", icon: <HomeIcon />, path: "/" },
-    { text: "Add Medication", icon: <MedicationIcon />, path: "/add-medication" },
+    { text: "My Medications", icon: <MedicationIcon />, path: "/my-medications" },
+    { text: "Add Medication", icon: <AddBoxIcon />, path: "/add-medication" },
+    { text: "My Information", icon: <MedicalInformationIcon />, path: "/personal-info" },
   ];
 
   return (
@@ -40,7 +44,17 @@ const Sidebar = ({ children }) => {
         variant="permanent"
         anchor="left"
       >
-        <Typography variant="h3">MEDictionary</Typography>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            paddingTop: "10px",
+            paddingBottom: "20px",
+          }}
+        >
+          <Typography variant="h3">MEDictionary</Typography>
+        </Box>
 
         <List sx={{ paddingTop: 0 }}>
           {menuItems.map((item) => (
@@ -52,7 +66,6 @@ const Sidebar = ({ children }) => {
                   backgroundColor: "grey",
                 },
                 height: "50px",
-                paddingLeft: 2,
               }}
             >
               <ListItemButton

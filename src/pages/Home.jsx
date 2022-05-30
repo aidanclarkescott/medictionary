@@ -1,21 +1,14 @@
 import { Typography, Container, Box } from "@mui/material";
 import React from "react";
 
-const Home = ({ medications }) => {
+const Home = () => {
   return (
     <Container>
-      <Typography variant="h2">Today</Typography>
-      {medications.map((medication) => (
-        <>
-          <Box>
-            <Typography variant="body">{medication.name}</Typography>
-            <Typography variant="body">{medication.dosage}</Typography>
-            <Typography variant="body">{medication.numPills}</Typography>
-            <Typography variant="body">{medication.totalAmount}</Typography>
-          </Box>
-          <br />
-        </>
-      ))}
+      <Typography variant="h2" sx={{ marginBottom: "20px" }}>
+        Today
+      </Typography>
+
+      <Box sx={{ height: "300px", backgroundColor: "lightgray", borderRadius: "10px" }}></Box>
     </Container>
   );
 };
