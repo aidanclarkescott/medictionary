@@ -9,7 +9,48 @@
         "ankle",
         "sore foot"
       ],
+      "medications": [
+        {
+          "name": "Ambien",
+          "dosage": "10",
+          "numPills": "2",
+          "totalAmount": "30",
+          "frequency": "Bi-Monthly"
+        },
+        {
+          "name": "Advil",
+          "dosage": "10",
+          "numPills": "2",
+          "totalAmount": "30",
+          "frequency": "Weekly",
+          "weeklyFrequency": {
+            "Monday": true,
+            "Wednesday": true,
+            "Friday": true
+          }
+        }
+      ],
       "id": 0
+    },
+    {
+      "name": "John",
+      "age": "22",
+      "sex": "Male",
+      "conditions": [
+        "Idiot"
+      ],
+      "id": 1
+    },
+    {
+      "name": "Mark",
+      "age": "32",
+      "sex": "Male",
+      "conditions": [
+        "Back Pain",
+        "Hip Replacement",
+        "IBS"
+      ],
+      "id": 2
     }
   ]
 }

@@ -27,22 +27,22 @@ const modalStyle = {
   justifyContent: "space-between",
 };
 
-const UpdateInfoModal = ({ name, age, sex, conditions, open, setClosed, updateInfo }) => {
-  const [newName, setNewName] = useState(name);
-  const [newAge, setNewAge] = useState(age);
-  const [newSex, setNewSex] = useState(sex);
+const UpdateInfoModal = ({ user, open, setClosed, updateInfo }) => {
+  const [newName, setNewName] = useState(user.name);
+  const [newAge, setNewAge] = useState(user.age);
+  const [newSex, setNewSex] = useState(user.sex);
   const [newCondition, setNewCondition] = useState("");
-  const [newConditions, setNewConditions] = useState(conditions);
+  const [newConditions, setNewConditions] = useState(user.conditions);
 
   useEffect(() => {
-    setNewName(name);
-    setNewAge(age);
-    setNewSex(sex);
-    setNewConditions(conditions);
-  }, [name, age, sex, conditions]);
+    setNewName(user.name);
+    setNewAge(user.age);
+    setNewSex(user.sex);
+    setNewConditions(user.conditions);
+  }, [user]);
 
   const submitForm = () => {
-    updateInfo({ name: newName, age: newAge, sex: newSex, conditions: newConditions });
+    updateInfo({ ...user, name: newName, age: newAge, sex: newSex, conditions: newConditions });
     setNewCondition("");
     setClosed();
   };

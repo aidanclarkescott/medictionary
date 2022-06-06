@@ -1,36 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Container, Typography, Box, Button } from "@mui/material";
 import UpdateInfoModal from "../modals/UpdateInfoModal";
-import { getUser, updateUser } from "../services/user";
 
-const PersonalInfo = () => {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [sex, setSex] = useState("");
-  const [conditions, setConditions] = useState([]);
+const PersonalInfo = ({ user, updateUser }) => {
+  const [name, setName] = useState(user.name);
+  const [age, setAge] = useState(user.age);
+  const [sex, setSex] = useState(user.sex);
+  const [conditions, setConditions] = useState(user.conditions);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const fetchUserData = async () => {
-      const data = await getUser("0");
-      console.log(data);
-
-      setName(data.name);
-      setAge(data.age);
-      setSex(data.sex);
-      setConditions(data.conditions);
-    };
-
-    fetchUserData();
-  }, []);
-
-  const updateInfo = async (newInfo) => {
-    const updatedUser = await updateUser("0", newInfo);
-    setName(updatedUser.name);
-    setAge(updatedUser.age);
-    setSex(updatedUser.sex);
-    setConditions(updatedUser.conditions);
-  };
+    setName(user.name);
+    setAge(user.age);
+    setSex(user.sex);
+    setConditions(user.conditions);
+  }, [user]);
 
   return (
     <Container>
@@ -58,15 +42,7 @@ const PersonalInfo = () => {
         Update Information
       </Button>
 
-      <UpdateInfoModal
-        open={open}
-        setClosed={() => setOpen(false)}
-        name={name}
-        age={age}
-        sex={sex}
-        conditions={conditions}
-        updateInfo={updateInfo}
-      />
+      <UpdateInfoModal open={open} setClosed={() => setOpen(false)} user={user} updateInfo={updateUser} />
     </Container>
   );
 };
